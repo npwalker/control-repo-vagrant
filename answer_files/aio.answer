@@ -36,7 +36,6 @@ q_puppetdb_install=y
 q_puppetdb_port=8081
 q_puppetmaster_certname=<%= machine_hostname %>
 q_puppetmaster_dnsaltnames=<%= machine_hostname %>,puppet
-q_puppetmaster_enterpriseconsole_hostname=localhost
 q_puppetmaster_enterpriseconsole_port=443
 q_puppetmaster_install=y
 q_run_updtvpkg=n
