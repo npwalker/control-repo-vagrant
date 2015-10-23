@@ -4,6 +4,12 @@ roles:
     provisioners:
       - {type: hosts}
 
+  2-cpus:
+    provider:
+      type: virtualbox
+      customize:
+        - [modifyvm, !ruby/sym id, '--cpus', 2]
+
   trusted_fact_aio_pe:
     provisioners:
       - type: shell
@@ -14,10 +20,15 @@ roles:
       - type: shell
         inline: 'mkdir -p /etc/puppetlabs/puppet; cp /vagrant/trusted_facts/gitlab_csr_attributes.yaml /etc/puppetlabs/puppet/csr_attributes.yaml'
 
+  trusted_fact_stash:
+    provisioners:
+      - type: shell
+        inline: 'mkdir -p /etc/puppetlabs/puppet; cp /vagrant/trusted_facts/stash_csr_attributes.yaml /etc/puppetlabs/puppet/csr_attributes.yaml'
+
   run_r10k:
     provisioners: 
       - type: shell
-        inline: 'sleep 60; /opt/puppetlabs/bin/r10k deploy environment -pv; /opt/puppetlabs/bin/puppet agent -t'
+        inline: 'sleep 60; /opt/puppetlabs/bin/r10k deploy environment -pv; sleep 60; /opt/puppetlabs/bin/puppet agent -t'
 
   auto_net:
     private_networks:
@@ -40,7 +51,43 @@ roles:
       - type: pe_bootstrap
         master: 'master382-centos'
         version: '3.8.2'
-  
+
+  master201522:
+    provisioners:
+      - type: shell
+        inline: "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"
+      - type: hosts
+      - type: pe_bootstrap
+        role: :master
+        version: '2015.2.2'
+        answer_file: 'answer_files/aio.answer'
+
+  agent201522:
+    provisioners:
+      - {type: shell, inline: "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"}
+      - {type: hosts}
+      - type: pe_bootstrap
+        version: '2015.2.2'
+        master: 'puppet-master'
+
+  master201521:
+    provisioners:
+      - type: shell
+        inline: "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"
+      - type: hosts
+      - type: pe_bootstrap
+        role: :master
+        version: '2015.2.1'
+        answer_file: 'answer_files/aio.answer'
+
+  agent201521:
+    provisioners:
+      - {type: shell, inline: "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"}
+      - {type: hosts}
+      - type: pe_bootstrap
+        version: '2015.2.1'
+        master: 'puppet-master'
+
   master20152:
     provisioners:
       - type: shell

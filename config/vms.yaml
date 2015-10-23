@@ -8,22 +8,33 @@ vms:
     roles:
       - pe-forward-console
       - run_r10k
-      - master20152
+      - master201522
       - pe-memory-tuning2
       - trusted_fact_aio_pe
       - el-stop-firewall
       - el-fix-path
-      - 1gb-memory
+      - 2gb-memory
       - base
+      - '2-cpus'
 
   - name: gitlab-server 
     box: puppetlabs/centos-6.6-64-nocm
     roles:
-      - agent20152
+      - agent201522
       - trusted_fact_gitlab
       - el-stop-firewall
       - el-fix-path
       - base
+
+  - name: stash-server
+    box: puppetlabs/centos-6.6-64-nocm
+    roles:
+      - agent201522
+      - trusted_fact_stash
+      - el-stop-firewall
+      - el-fix-path
+      - base
+
 
 
 # vim: set ft=yaml:
