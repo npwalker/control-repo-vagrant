@@ -1,4 +1,5 @@
 files/
+config/pe_build.yaml
 .bundle
 .pe_build
 .ruby-version
