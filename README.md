@@ -8,9 +8,9 @@ This stack bootstraps itself by
 
 In order to follow the instructions in npwalker/control-repo you need to clean up some stuff
 
-1.  Remove r10k_remote from the puppet_enterprise::profile::master class in the PE master group of the console
-2.  remove the remote from r10k.yaml ( mostly so you don't erronously think you've done something right when really it's just pulling from my repo )
-3.  `rm -rf rm -rf /opt/puppetlabs/server/data/puppetserver/r10k/*`
+1.  Remove r10k_remote from the `puppet_enterprise::profile::master` class in the PE master group of the console
+2.  Remove the remote from r10k.yaml ( mostly so you don't erronously think you've done something right when really it's just pulling from my repo )
+3.  `rm -rf /opt/puppetlabs/server/data/puppetserver/r10k/*`
 
 # This Vagrant Stack is Based on the puppet-debugging-kit
 

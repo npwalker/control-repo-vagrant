@@ -5,10 +5,10 @@ roles:
       - {type: hosts}
 
   2-cpus:
-    provider:
-      type: virtualbox
-      customize:
-        - [modifyvm, !ruby/sym id, '--cpus', 2]
+    providers:
+      - type: virtualbox
+        customize:
+          - [modifyvm, !ruby/sym id, '--cpus', 2]
 
   trusted_fact_aio_pe:
     provisioners:
