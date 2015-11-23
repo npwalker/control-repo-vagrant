@@ -4,11 +4,12 @@ roles:
     provisioners:
       - {type: hosts}
 
-  2-cpus:
+  4-cpus:
     providers:
       - type: virtualbox
         customize:
-          - [modifyvm, !ruby/sym id, '--cpus', 2]
+          - [modifyvm, !ruby/sym id, '--cpus', 4]
+          - [modifyvm, !ruby/sym id, '--ioapic', 'on']
 
   trusted_fact_aio_pe:
     provisioners:
@@ -52,22 +53,21 @@ roles:
         master: 'master382-centos'
         version: '3.8.2'
 
-  master201522:
+  master:
     provisioners:
       - type: shell
         inline: "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"
       - type: hosts
       - type: pe_bootstrap
         role: :master
-        version: '2015.2.2'
-        answer_file: 'answer_files/aio.answer'
+        answer_extras:
+          - "q_puppetmaster_r10k_remote='https://github.com/npwalker/control-repo.git'"
 
-  agent201522:
+  agent:
     provisioners:
       - {type: shell, inline: "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"}
       - {type: hosts}
       - type: pe_bootstrap
-        version: '2015.2.2'
         master: 'puppet-master'
 
   master201521:
