@@ -25,6 +25,7 @@ vms:
       - el-stop-firewall
       - el-fix-path
       - 4-cpus
+      - 1gb-memory
       - base
 
   - name: stash-server
