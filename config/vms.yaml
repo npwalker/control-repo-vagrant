@@ -3,11 +3,11 @@ vms:
 
   # NOTE: All `box:` declarations in this example point to vagrantcloud.com
   # and require Vagrant 1.5.0 or newer to function.
-  - name: puppet-master
+  - name: puppet-master-ankeny
     box: puppetlabs/centos-6.6-64-nocm
     roles:
       - pe-forward-console
-      - run_r10k
+#      - run_r10k
       - master
       - pe-memory-tuning2
       - trusted_fact_aio_pe
@@ -15,17 +15,18 @@ vms:
       - el-fix-path
       - 4-cpus
       - 2gb-memory
+      - 4-cpus
       - base
 
-  - name: gitlab-server 
+  - name: gitlab-server-ankeny
     box: puppetlabs/centos-6.6-64-nocm
     roles:
       - agent
       - trusted_fact_gitlab
       - el-stop-firewall
       - el-fix-path
-      - 4-cpus
       - 1gb-memory
+      - 4-cpus
       - base
 
   - name: stash-server

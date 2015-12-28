@@ -1,5 +1,4 @@
 ---
 pe_build:
-  version: "2015.2.3"
+  version: "2015.3.0"
   download_root: "https://s3.amazonaws.com/pe-builds/released/:version"
-

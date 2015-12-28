@@ -4,12 +4,19 @@ roles:
     provisioners:
       - {type: hosts}
 
+  2-cpus:
+    providers:
+      - type: virtualbox
+        customize:
+        - [modifyvm, !ruby/sym id, '--cpus', 2]
+        - [modifyvm, !ruby/sym id, '--ioapic', 'on']
+
   4-cpus:
     providers:
       - type: virtualbox
         customize:
-          - [modifyvm, !ruby/sym id, '--cpus', 4]
-          - [modifyvm, !ruby/sym id, '--ioapic', 'on']
+        - [modifyvm, !ruby/sym id, '--cpus', 4]
+        - [modifyvm, !ruby/sym id, '--ioapic', 'on']
 
   trusted_fact_aio_pe:
     provisioners:
@@ -29,7 +36,7 @@ roles:
   run_r10k:
     provisioners: 
       - type: shell
-        inline: 'sleep 60; /opt/puppetlabs/bin/r10k deploy environment -pv; sleep 60; /opt/puppetlabs/bin/puppet agent -t'
+        inline: 'sleep 60; rm /etc/puppetlabs/code/environments/production/.git -f; /opt/puppetlabs/bin/r10k deploy environment -pv; sleep 60; /opt/puppetlabs/bin/puppet agent -t'
 
   auto_net:
     private_networks:
@@ -60,15 +67,15 @@ roles:
       - type: hosts
       - type: pe_bootstrap
         role: :master
-        answer_extras:
-          - "q_puppetmaster_r10k_remote='https://github.com/npwalker/control-repo.git'"
+#        answer_extras:
+#          - "q_puppetmaster_r10k_remote='https://github.com/npwalker/control-repo.git'"
 
   agent:
     provisioners:
       - {type: shell, inline: "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"}
       - {type: hosts}
-      - type: pe_bootstrap
-        master: 'puppet-master'
+      - type: pe_agent
+        master_vm: 'puppet-master-ankeny'
 
   master201521:
     provisioners:
