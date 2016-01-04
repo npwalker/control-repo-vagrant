@@ -77,23 +77,22 @@ roles:
       - type: pe_agent
         master_vm: 'puppet-master-ankeny'
 
-  master201521:
+  master201523:
     provisioners:
       - type: shell
         inline: "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"
       - type: hosts
       - type: pe_bootstrap
         role: :master
-        version: '2015.2.1'
-        answer_file: 'answer_files/aio.answer'
+        version: '2015.2.3'
 
-  agent201521:
+  agent201523:
     provisioners:
       - {type: shell, inline: "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"}
       - {type: hosts}
       - type: pe_bootstrap
-        version: '2015.2.1'
-        master: 'puppet-master'
+        version: '2015.2.3'
+        master: 'puppet-master-201523'
 
   master20152:
     provisioners:
