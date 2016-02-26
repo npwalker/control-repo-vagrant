@@ -67,8 +67,9 @@ roles:
       - type: hosts
       - type: pe_bootstrap
         role: :master
-#        answer_extras:
-#          - "q_puppetmaster_r10k_remote='https://github.com/npwalker/control-repo.git'"
+        answer_extras:
+          - "q_puppetmaster_r10k_remote='git@gitlab-server-ankeny:puppet/control-repo.git'"
+          - "q_puppetmaster_r10k_private_key='/etc/puppetlabs/puppetserver/code_manager.key'"
 
   agent:
     provisioners:
