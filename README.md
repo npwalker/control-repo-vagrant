@@ -1,16 +1,28 @@
+#One-time Setup
+
+The first time you use this stack you need to setup the puppetlabs/control-repo in your gitlab server.
+
+Outline of steps:
+
+1. `vagrant up gitlab-server-ankeny`
+2. Login into the gitlab UI via the ip address assigned to your vagrant instance
+ - I recommend added this to your local hosts file so you can easily access the interface in the future
+3. Follow the instructions in puppetlabs/control-repo to get everything setup in gitlab
+ - https://github.com/puppetlabs/control-repo#copy-this-repo-into-your-own-git-server
+4. On your laptop, inside this directory run:
+ - `/usr/bin/ssh-keygen -t rsa -b 2048 -C 'code_manager' -f ssh_key/code_manager.key -q -N ''`
+ - This is necessary so that the puppet-masters can move this key into place and use it to connect to gitlab
+5. Add the ssh key you just made as a deploy key on the puppet/control-repo in gitlab
+4. Once you have completed these steps I recommend snapshotting the gitlab server so you can always get back to this state
+
 # How to use this stack
 
 This stack bootstraps itself by
 
-1. Installing with an answer file that configures r10k to connect to my npwalker/control-repo on github
+1. Installing with an answer file that configures r10k/code manager to connect to the puppet/control-repo on the local gitlab server
 2. Running r10k
-3. Running puppet agent -t
+3. Using the pe_git_webhook module to set everything up and then running puppet a few more times
 
-In order to follow the instructions in npwalker/control-repo you need to clean up some stuff
-
-1.  Remove r10k_remote from the `puppet_enterprise::profile::master` class in the PE master group of the console
-2.  Remove the remote from r10k.yaml ( mostly so you don't erronously think you've done something right when really it's just pulling from my repo )
-3.  `rm -rf /opt/puppetlabs/server/data/puppetserver/r10k/*`
 
 # This Vagrant Stack is Based on the puppet-debugging-kit
 

@@ -8,3 +8,4 @@ Gemfile.local
 Gemfile.lock
 bin
 src/puppetlabs
+ssh_key/

@@ -8,6 +8,8 @@ vms:
     roles:
       - pe-forward-console
 #      - run_r10k
+#      - deploy_everything
+      - ssh_key
       - master
       - pe-memory-tuning2
       - trusted_fact_aio_pe
@@ -22,6 +24,8 @@ vms:
     roles:
       - pe-forward-console
 #      - run_r10k
+      - deploy_everything
+      - ssh_key
       - master201523
       - pe-memory-tuning2
       - trusted_fact_aio_pe

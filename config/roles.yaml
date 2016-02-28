@@ -60,6 +60,16 @@ roles:
         master: 'master382-centos'
         version: '3.8.2'
 
+  ssh_key:
+    provisioners:
+      - type: shell
+        inline: "/opt/puppetlabs/bin/puppet apply /vagrant/puppet_code/ssh_key_placement.pp"
+
+  deploy_everything:
+    provisioners:
+      - type: shell
+        inline: "puppet agent -t; puppet agent -t; r10k deploy environment -pv; echo 'code_manager_mv_old_code=true' > /opt/puppetlabs/facter/facts.d/code_manager_mv_old_code.txt; puppet agent -t; puppet agent -t; puppet agent -t"
+
   master:
     provisioners:
       - type: shell
