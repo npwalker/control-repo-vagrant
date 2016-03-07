@@ -28,6 +28,13 @@ roles:
       - type: shell
         inline: 'mkdir -p /etc/puppetlabs/puppet; cp /vagrant/trusted_facts/gitlab_csr_attributes.yaml /etc/puppetlabs/puppet/csr_attributes.yaml'
 
+  install_gitlab:
+    provisioners:
+      - type: shell
+      - inline: "yum install git -y"
+        inline: "git clone https://github.com/npwalker/control-repo"
+        inline: "puppet apply control-repo/production/profile/manifests/gitlab.pp"
+
   trusted_fact_stash:
     provisioners:
       - type: shell
