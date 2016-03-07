@@ -5,7 +5,7 @@ The first time you use this stack you need to setup the puppetlabs/control-repo 
 Outline of steps:
 
 1. On your laptop, inside this directory run:
- - `/usr/bin/ssh-keygen -t rsa -b 2048 -C 'code_manager' -f ssh_key/code_manager.key -q -N ''`
+ - `mkdir ssh_key; /usr/bin/ssh-keygen -t rsa -b 2048 -C 'code_manager' -f ssh_key/code_manager.key -q -N ''`
  - This is necessary so that the puppet-masters can move this key into place and use it to connect to gitlab
 1. `vagrant up puppet-master-ankeny; vagrant up gitlab-server-ankeny`
 2. Login into the gitlab UI via the ip address assigned to your vagrant instance
