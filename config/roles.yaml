@@ -31,9 +31,11 @@ roles:
   install_gitlab:
     provisioners:
       - type: shell
-      - inline: "yum install git -y"
-        inline: "git clone https://github.com/npwalker/control-repo"
-        inline: "puppet apply control-repo/production/profile/manifests/gitlab.pp"
+        inline: "yum install git -y"
+      - type: shell
+        inline: "cd /etc/puppetlabs/code/environments/production; rm -rf *; git clone https://github.com/npwalker/control-repo; mv control-repo/* .; rm -rf control-repo"
+      - type: shell
+        inline: "puppet module install vshn/gitlab; puppet apply -e 'include profile::gitlab'"
 
   trusted_fact_stash:
     provisioners:
