@@ -33,9 +33,9 @@ roles:
       - type: shell
         inline: "yum install git -y"
       - type: shell
-        inline: "cd /etc/puppetlabs/code/environments/production; rm -rf *; git clone https://github.com/npwalker/control-repo; mv control-repo/* .; rm -rf control-repo"
+        inline: "cd /etc/puppetlabs/code/environments/production; rm -rf rampup_profile_gitlab; git clone https://github.com/PuppetLabs-RampUpProgram/RampUp_profile_gitlab;"
       - type: shell
-        inline: "puppet module install vshn/gitlab; puppet apply -e 'include profile::gitlab'"
+        inline: "puppet module install vshn/gitlab; puppet apply -e 'include rampup_profile_gitlab'"
 
   trusted_fact_stash:
     provisioners:
@@ -88,6 +88,7 @@ roles:
         role: :master
         answer_extras:
           - "q_puppetmaster_r10k_remote='git@gitlab-server-ankeny:puppet/control-repo.git'"
+        #  - "q_puppetmaster_r10k_private_key='/etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa'"
           - "q_puppetmaster_r10k_private_key='/etc/puppetlabs/puppetserver/code_manager.key'"
 
   agent:
