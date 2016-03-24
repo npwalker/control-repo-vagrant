@@ -33,7 +33,7 @@ roles:
       - type: shell
         inline: "yum install git -y"
       - type: shell
-        inline: "cd /etc/puppetlabs/code/environments/production; rm -rf rampup_profile_gitlab; git clone https://github.com/PuppetLabs-RampUpProgram/RampUp_profile_gitlab;"
+        inline: "cd /etc/puppetlabs/code/environments/production/modules; rm -rf rampup_profile_gitlab; git clone https://github.com/PuppetLabs-RampUpProgram/rampup_profile_gitlab;"
       - type: shell
         inline: "puppet module install vshn/gitlab; puppet apply -e 'include rampup_profile_gitlab'"
 
