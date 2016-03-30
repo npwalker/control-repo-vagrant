@@ -155,22 +155,11 @@ roles:
   centos: 
     provisioners:
       - type: shell
-        inline: 'service iptables stop; chkconfig iptables off;'
-      - type: shell
-        inline: '/usr/bin/yum install telnet -y' 
-      - type: shell
-        inline: '/usr/bin/yum install tree -y' 
-
-  centos7: 
-    provisioners:
-      - type: shell
         inline: '/usr/bin/yum install telnet -y' 
       - type: shell
         inline: '/usr/bin/yum install vim -y' 
       - type: shell
         inline: '/usr/bin/yum install tree -y' 
-      - type: shell
-        inline: 'systemctl stop firewalld.service; systemctl disable firewalld.service'
  
   customize_pe_via_hiera: 
     provisioners:
@@ -185,6 +174,3 @@ roles:
         inline: 'mkdir -p /etc/puppetlabs/code/environments/production/hieradata; cp /vagrant/config/hierafiles/defaults.yaml /etc/puppetlabs/code/environments/production/hieradata/common.yaml'
       - type: shell
         inline: 'mkdir -p /var/lib/hiera; cp /vagrant/config/hierafiles/defaults.yaml /var/lib/hiera/defaults.yaml'
-
-  
-
