@@ -26,7 +26,7 @@ vms:
 #      - run_r10k
       - deploy_everything
       - ssh_key
-      - master
+      - ankeny_master
       - pe-memory-tuning2
       - trusted_fact_aio_pe
       - el-stop-firewall

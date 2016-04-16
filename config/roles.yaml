@@ -79,7 +79,7 @@ roles:
       - type: shell
         inline: "puppet agent -t; puppet agent -t; r10k deploy environment -pv; echo 'code_manager_mv_old_code=true' > /opt/puppetlabs/facter/facts.d/code_manager_mv_old_code.txt; puppet agent -t; puppet agent -t; puppet agent -t"
 
-  master:
+  ankeny_master:
     provisioners:
       - type: shell
         inline: "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"
