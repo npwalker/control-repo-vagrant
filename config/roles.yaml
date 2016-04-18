@@ -83,13 +83,12 @@ roles:
     provisioners:
       - type: shell
         inline: "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"
-      - type: hosts
       - type: pe_bootstrap
         role: :master
         answer_extras:
           - "q_puppetmaster_r10k_remote='git@gitlab-server-ankeny:puppet/control-repo.git'"
-        #  - "q_puppetmaster_r10k_private_key='/etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa'"
-          - "q_puppetmaster_r10k_private_key='/etc/puppetlabs/puppetserver/code_manager.key'"
+          - "q_puppetmaster_r10k_private_key='/etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa'"
+        version: '2015.3.3'
 
   agent:
     provisioners:
