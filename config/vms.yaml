@@ -3,53 +3,53 @@ vms:
 
   # NOTE: All `box:` declarations in this example point to vagrantcloud.com
   # and require Vagrant 1.5.0 or newer to function.
-  - name: puppet-master-201612
-    box: puppetlabs/centos-6.6-64-nocm
-    roles:
-      - pe-forward-console
+#  - name: puppet-master-201612
+#    box: puppetlabs/centos-6.6-64-nocm
+#    roles:
+#      - pe-forward-console
 #      - run_r10k
-      - deploy_everything
-      - ssh_key
-      - burnside_master
-      - pe-memory-tuning2
-      - trusted_fact_aio_pe
-      - el-stop-firewall
-      - el-fix-path
-      - 4-cpus
-      - 2gb-memory
-      - base
+#      - deploy_everything
+#      - ssh_key
+#      - burnside_master
+#      - pe-memory-tuning2
+#      - trusted_fact_aio_pe
+#      - el-stop-firewall
+#      - el-fix-path
+#      - 4-cpus
+#      - 2gb-memory
+#      - base
 
-  - name: puppet-master-201533
-    box: puppetlabs/centos-6.6-64-nocm
-    roles:
-      - pe-forward-console
+#  - name: puppet-master-201533
+#    box: puppetlabs/centos-6.6-64-nocm
+#    roles:
+#      - pe-forward-console
 #      - run_r10k
-      - deploy_everything
-      - ssh_key
-      - ankeny_master
-      - pe-memory-tuning2
-      - trusted_fact_aio_pe
-      - el-stop-firewall
-      - el-fix-path
-      - 4-cpus
-      - 2gb-memory
-      - base
+#      - deploy_everything
+#      - ssh_key
+#      - ankeny_master
+#      - pe-memory-tuning2
+#      - trusted_fact_aio_pe
+#      - el-stop-firewall
+#      - el-fix-path
+#      - 4-cpus
+#      - 2gb-memory
+#      - base
 
-  - name: puppet-master-201523
-    box: puppetlabs/centos-6.6-64-nocm
-    roles:
-      - pe-forward-console
+#  - name: puppet-master-201523
+#    box: puppetlabs/centos-6.6-64-nocm
+#    roles:
+#      - pe-forward-console
 #      - run_r10k
-      - deploy_everything
-      - ssh_key
-      - master201523
-      - pe-memory-tuning2
-      - trusted_fact_aio_pe
-      - el-stop-firewall
-      - el-fix-path
-      - 4-cpus
-      - 2gb-memory
-      - base
+#      - deploy_everything
+#      - ssh_key
+#      - master201523
+#      - pe-memory-tuning2
+#      - trusted_fact_aio_pe
+#      - el-stop-firewall
+#      - el-fix-path
+#      - 4-cpus
+#      - 2gb-memory
+#      - base
 
   - name: gitlab-server
     box: puppetlabs/centos-6.6-64-nocm
