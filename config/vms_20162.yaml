@@ -1,0 +1,18 @@
+---
+vms:
+
+  - name: puppet-master-201620
+    box: puppetlabs/centos-6.6-64-nocm
+    roles:
+      - pe-forward-console
+      - deploy_everything
+      - ssh_key
+      - master201620 
+      - pe-memory-tuning2
+      - trusted_fact_aio_pe
+      - el-stop-firewall
+      - el-fix-path
+      - 4-cpus
+      - 4gb-memory
+      - hosts
+      - base

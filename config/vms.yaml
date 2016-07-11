@@ -3,7 +3,7 @@ vms:
 
   # NOTE: All `box:` declarations in this example point to vagrantcloud.com
   # and require Vagrant 1.5.0 or newer to function.
-  - name: puppet-master-burnside
+  - name: puppet-master-201612
     box: puppetlabs/centos-6.6-64-nocm
     roles:
       - pe-forward-console
@@ -19,7 +19,7 @@ vms:
       - 2gb-memory
       - base
 
-  - name: puppet-master-ankeny
+  - name: puppet-master-201533
     box: puppetlabs/centos-6.6-64-nocm
     roles:
       - pe-forward-console
@@ -51,7 +51,7 @@ vms:
       - 2gb-memory
       - base
 
-  - name: gitlab-server-ankeny
+  - name: gitlab-server
     box: puppetlabs/centos-6.6-64-nocm
     roles:
       - install_gitlab

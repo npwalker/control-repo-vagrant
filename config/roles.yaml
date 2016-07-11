@@ -3,6 +3,8 @@ roles:
   hosts:
     provisioners:
       - {type: hosts}
+      - type: shell
+        inline: "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"
 
   2-cpus:
     providers:
@@ -86,7 +88,7 @@ roles:
       - type: pe_bootstrap
         role: :master
         answer_extras:
-          - "q_puppetmaster_r10k_remote='git@gitlab-server-ankeny:puppet/control-repo.git'"
+          - "q_puppetmaster_r10k_remote='git@gitlab-server:puppet/control-repo.git'"
           - "q_puppetmaster_r10k_private_key='/etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa'"
         version: '2015.3.3'
 
@@ -95,7 +97,7 @@ roles:
       - {type: shell, inline: "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"}
       - {type: hosts}
       - type: pe_agent
-        master_vm: 'puppet-master-ankeny'
+        master_vm: 'puppet-master-201620'
 
   master201523:
     provisioners:

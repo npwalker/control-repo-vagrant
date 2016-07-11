@@ -7,6 +7,6 @@ roles:
       - type: pe_bootstrap
         role: :master
         answer_extras:
-          - "q_puppetmaster_r10k_remote='git@gitlab-server-ankeny:puppet/control-repo.git'"
+          - "q_puppetmaster_r10k_remote='git@gitlab-server:puppet/control-repo.git'"
           - "q_puppetmaster_r10k_private_key='/etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa'"
-        version: '2016.1.1' 
+        version: '2016.1.2' 
