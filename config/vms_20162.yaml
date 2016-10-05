@@ -1,13 +1,13 @@
 ---
 vms:
 
-  - name: puppet-master-201620
+  - name: puppet-master-201621
     box: puppetlabs/centos-6.6-64-nocm
     roles:
       - pe-forward-console
       - deploy_everything
       - ssh_key
-      - master201620 
+      - master201621
       - pe-memory-tuning2
       - trusted_fact_aio_pe
       - el-stop-firewall

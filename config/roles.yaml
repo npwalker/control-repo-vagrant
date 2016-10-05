@@ -97,7 +97,7 @@ roles:
       - {type: shell, inline: "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"}
       - {type: hosts}
       - type: pe_agent
-        master_vm: 'puppet-master-201620'
+        master_vm: 'puppet-master-201621'
 
   master201523:
     provisioners:
