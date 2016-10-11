@@ -1,4 +1,16 @@
 
+file { '/vagrant/ssh_key' :
+  ensure => directory,
+}
+
+$code_manager_ssh_key_file = '/vagrant/ssh_key/code_manager.key'
+
+exec { 'create vagrant ssh key' :
+      command => "/usr/bin/ssh-keygen -t rsa -b 2048 -C 'code_manager' -f ${code_manager_ssh_key_file} -q -N ''",
+      creates => $code_manager_ssh_key_file,
+      require => File['/vagrant/ssh_key'],
+    }
+
 file { '/etc/puppetlabs/puppetserver/ssh' :
   ensure => directory,
   owner  => 'pe-puppet',
