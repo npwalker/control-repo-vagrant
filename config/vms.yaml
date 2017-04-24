@@ -3,6 +3,38 @@ vms:
 
   # NOTE: All `box:` declarations in this example point to vagrantcloud.com
   # and require Vagrant 1.5.0 or newer to function.
+  - name: puppet-master-201711
+    box: puppetlabs/centos-6.6-64-nocm
+    roles:
+      - pe-forward-console
+      - deploy_everything
+      - ssh_key
+      - master201711
+      - pe-memory-tuning2
+      - trusted_fact_aio_pe
+      - el-stop-firewall
+      - el-fix-path
+      - medium-size
+      - 4gb-memory
+      - hosts
+      - base
+
+  - name: puppet-master-201621
+    box: puppetlabs/centos-6.6-64-nocm
+    roles:
+      - pe-forward-console
+      - deploy_everything
+      - ssh_key
+      - master201621
+      - pe-memory-tuning2
+      - trusted_fact_aio_pe
+      - el-stop-firewall
+      - el-fix-path
+      - medium-size
+      - 4gb-memory
+      - hosts
+      - base
+
 #  - name: puppet-master-201612
 #    box: puppetlabs/centos-6.6-64-nocm
 #    roles:
@@ -15,7 +47,7 @@ vms:
 #      - trusted_fact_aio_pe
 #      - el-stop-firewall
 #      - el-fix-path
-#      - 4-cpus
+#      - medium-size
 #      - 2gb-memory
 #      - base
 
@@ -31,7 +63,7 @@ vms:
 #      - trusted_fact_aio_pe
 #      - el-stop-firewall
 #      - el-fix-path
-#      - 4-cpus
+#      - medium-size
 #      - 2gb-memory
 #      - base
 
@@ -47,7 +79,7 @@ vms:
 #      - trusted_fact_aio_pe
 #      - el-stop-firewall
 #      - el-fix-path
-#      - 4-cpus
+#      - medium-size
 #      - 2gb-memory
 #      - base
 
@@ -60,7 +92,7 @@ vms:
       - el-stop-firewall
       - el-fix-path
       - 1gb-memory
-      - 4-cpus
+      - small-size
       - base
 
   - name: stash-server
@@ -70,6 +102,7 @@ vms:
       - trusted_fact_stash
       - el-stop-firewall
       - el-fix-path
+      - small-size
       - base
 
 

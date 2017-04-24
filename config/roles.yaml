@@ -45,7 +45,7 @@ roles:
         inline: 'mkdir -p /etc/puppetlabs/puppet; cp /vagrant/trusted_facts/stash_csr_attributes.yaml /etc/puppetlabs/puppet/csr_attributes.yaml'
 
   run_r10k:
-    provisioners: 
+    provisioners:
       - type: shell
         inline: 'sleep 60; rm /etc/puppetlabs/code/environments/production/.git -f; /opt/puppetlabs/bin/r10k deploy environment -pv; sleep 60; /opt/puppetlabs/bin/puppet agent -t'
 
@@ -53,7 +53,7 @@ roles:
     private_networks:
       - ip: '0.0.0.0'
         auto_network: true
- 
+
   master382:
     provisioners:
       - type: shell
@@ -61,7 +61,7 @@ roles:
       - type: hosts
       - type: pe_bootstrap
         role: :master
-        version: '3.8.2' 
+        version: '3.8.2'
 
   agent_382:
     provisioners:
@@ -97,7 +97,7 @@ roles:
       - {type: shell, inline: "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"}
       - {type: hosts}
       - type: pe_agent
-        master_vm: 'puppet-master-201621'
+        master_vm: 'puppet-master-201711'
 
   master201523:
     provisioners:
@@ -139,7 +139,7 @@ roles:
     forwarded_ports:
       - { guest: 5985, host: 5986 }
       - { guest: 3389, host: 3390 }
- 
+
   windows_agent_20152:
     guest: windows
     private_networks:
@@ -148,26 +148,26 @@ roles:
       - type: pe_bootstrap
         version: '4.0.0'
         master: 'master20152-centos'
- 
+
   posix_agent:
     private_networks:
       - {ip: '0.0.0.0', auto_network: true}
 
-  centos: 
+  centos:
     provisioners:
       - type: shell
-        inline: '/usr/bin/yum install telnet -y' 
+        inline: '/usr/bin/yum install telnet -y'
       - type: shell
-        inline: '/usr/bin/yum install vim -y' 
+        inline: '/usr/bin/yum install vim -y'
       - type: shell
-        inline: '/usr/bin/yum install tree -y' 
- 
-  customize_pe_via_hiera: 
+        inline: '/usr/bin/yum install tree -y'
+
+  customize_pe_via_hiera:
     provisioners:
       - type: shell
         inline: 'mkdir -p /etc/puppetlabs/code/environments/production/hieradata; cp /vagrant/config/hierafiles/defaults.yaml /etc/puppetlabs/code/environments/production/hieradata/common.yaml'
       - type: shell
-        inline: 'mkdir -p /var/lib/hiera; cp /vagrant/config/hierafiles/defaults.yaml /var/lib/hiera/defaults.yaml'  
+        inline: 'mkdir -p /var/lib/hiera; cp /vagrant/config/hierafiles/defaults.yaml /var/lib/hiera/defaults.yaml'
 
   customize_pe_via_hiera_2015:
     provisioners:

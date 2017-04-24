@@ -1,31 +1,31 @@
 ---
 roles:
-  master201621:
+  master201711:
     provisioners:
       - type: pe_bootstrap
         role: :master
-        version: '2016.2.1'
+        version: '2017.1.1'
         answer_extras:
           - '"puppet_enterprise::profile::master::r10k_remote": "git@gitlab-server:puppet/control-repo.git"'
           - '"puppet_enterprise::profile::master::r10k_private_key": "/etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa"'
 
-  agent_201621:
+  agent_201711:
     provisioners:
       - type: pe_bootstrap
-        version: '2016.2.1'
-        master: 'master201621-centos'
+        version: '2017.1.1'
+        master: 'master201711-centos'
 
-#  master201620:
+#  master201710:
 #    provisioners:
 #      - type: pe_bootstrap
 #        role: :master
 #        download_root: "http://enterprise.delivery.puppetlabs.net/2016.1/ci-ready"
 #        version_file: 'http://getpe.delivery.puppetlabs.net/latest/2016.1'
 
-#  agent_201620:
+#  agent_201710:
 #    provisioners:
 #      - type: pe_bootstrap
-#        version: '2016.2.0'
-#        master: 'master201620-centos'
+#        version: '2017.1.0'
+#        master: 'master201710-centos'
 #        download_root: "http://enterprise.delivery.puppetlabs.net/2016.1/ci-ready"
 #        version_file: 'http://getpe.delivery.puppetlabs.net/latest/2016.1'

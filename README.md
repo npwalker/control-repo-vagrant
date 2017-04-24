@@ -1,4 +1,4 @@
-#One-time Setup
+# One-time Setup
 
 The first time you use this stack you need to setup the puppetlabs/control-repo in your gitlab server.
 
