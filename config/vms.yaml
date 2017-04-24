@@ -4,6 +4,7 @@ vms:
   # NOTE: All `box:` declarations in this example point to vagrantcloud.com
   # and require Vagrant 1.5.0 or newer to function.
   - name: puppet-master-201711
+    hostname: puppet-master-201711.puppetdebug.vlan
     box: puppetlabs/centos-6.6-64-nocm
     roles:
       - pe-forward-console
@@ -16,10 +17,10 @@ vms:
       - el-fix-path
       - medium-size
       - 4gb-memory
-      - hosts
       - base
 
   - name: puppet-master-201621
+    hostname: puppet-master-201621.puppetdebug.vlan
     box: puppetlabs/centos-6.6-64-nocm
     roles:
       - pe-forward-console
@@ -32,10 +33,10 @@ vms:
       - el-fix-path
       - medium-size
       - 4gb-memory
-      - hosts
       - base
 
 #  - name: puppet-master-201612
+#    hostname: puppet-master-201612.puppetdebug.vlan
 #    box: puppetlabs/centos-6.6-64-nocm
 #    roles:
 #      - pe-forward-console
@@ -52,6 +53,7 @@ vms:
 #      - base
 
 #  - name: puppet-master-201533
+#    hostname: puppet-master-201533.puppetdebug.vlan
 #    box: puppetlabs/centos-6.6-64-nocm
 #    roles:
 #      - pe-forward-console
@@ -68,6 +70,7 @@ vms:
 #      - base
 
 #  - name: puppet-master-201523
+#    hostname: puppet-master-201523.puppetdebug.vlan
 #    box: puppetlabs/centos-6.6-64-nocm
 #    roles:
 #      - pe-forward-console
@@ -84,6 +87,7 @@ vms:
 #      - base
 
   - name: gitlab-server
+    hostname: gitlab-server.puppetdebug.vlan
     box: puppetlabs/centos-6.6-64-nocm
     roles:
       - install_gitlab
@@ -91,11 +95,11 @@ vms:
       - trusted_fact_gitlab
       - el-stop-firewall
       - el-fix-path
-      - 1gb-memory
       - small-size
       - base
 
   - name: stash-server
+    hostname: stash-server.puppetdebug.vlan
     box: puppetlabs/centos-6.6-64-nocm
     roles:
       - agent

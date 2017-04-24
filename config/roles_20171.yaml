@@ -13,7 +13,7 @@ roles:
     provisioners:
       - type: pe_bootstrap
         version: '2017.1.1'
-        master: 'master201711-centos'
+        master_vm: 'master201711-centos'
 
 #  master201710:
 #    provisioners:
@@ -26,6 +26,6 @@ roles:
 #    provisioners:
 #      - type: pe_bootstrap
 #        version: '2017.1.0'
-#        master: 'master201710-centos'
+#        master_vm: 'master201710-centos'
 #        download_root: "http://enterprise.delivery.puppetlabs.net/2016.1/ci-ready"
 #        version_file: 'http://getpe.delivery.puppetlabs.net/latest/2016.1'

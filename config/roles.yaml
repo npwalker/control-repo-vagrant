@@ -3,8 +3,6 @@ roles:
   hosts:
     provisioners:
       - {type: hosts}
-      - type: shell
-        inline: "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"
 
   2-cpus:
     providers:
@@ -94,8 +92,6 @@ roles:
 
   agent:
     provisioners:
-      - {type: shell, inline: "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"}
-      - {type: hosts}
       - type: pe_agent
         master_vm: 'puppet-master-201711'
 
