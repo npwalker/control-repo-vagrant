@@ -1,5 +1,5 @@
 files/
-config/pe_build.yaml
+config/openstack.yaml
 .bundle
 .pe_build
 .ruby-version
